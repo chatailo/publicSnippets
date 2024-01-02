@@ -1,0 +1,42 @@
+Port 22
+Protocol 2
+ListenAddress TODO.IP
+
+HostKey /etc/ssh/ssh_host_rsa_key
+HostKey /etc/ssh/ssh_host_ed25519_key
+PermitEmptyPasswords no
+LoginGraceTime 60
+PermitRootLogin no
+AllowUsers TODO.USER
+PasswordAuthentication yes
+HostbasedAuthentication no
+ChallengeResponseAuthentication no
+
+RSAAuthentication yes
+PubkeyAuthentication no
+
+KexAlgorithms diffie-hellman-group-exchange-sha256
+Ciphers aes256-gcm@openssh.com,aes128-gcm@openssh.com,aes256-ctr,aes128-ctr
+MACs hmac-sha2-512-etm@openssh.com,hmac-sha2-256-etm@openssh.com,hmac-sha2-512,hmac-sha2-256
+MaxAuthTries 2
+LoginGraceTime 60
+
+SyslogFacility AUTH
+LogLevel INFO
+PrintLastLog yes
+
+IgnoreRhosts yes
+RhostsRSAAuthentication no
+HostbasedAuthentication no
+
+UsePrivilegeSeparation sandbox
+StrictModes yes
+X11Forwarding no
+PrintMotd no
+TCPKeepAlive yes
+PermitTunnel no
+GatewayPorts no
+PermitUserEnvironment no
+
+Banner no
+DebianBanner no
